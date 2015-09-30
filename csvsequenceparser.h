@@ -27,13 +27,13 @@
 #include "baseimporter.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 /**
  * \brief this class can generate a sequence by linear interpolation between values in a CSV file. It is a high-level sequence generator.
  * \ingroup hlseqgen_csv
  *
  * The CSV files used here have to contain a comment line that names the single columns. The column names have to be
- * the same as the registered channels in the used sequencer::channelManager object. Such a title comment line looks
+ * the same as the registered channels in the used SDFFLib::channelManager object. Such a title comment line looks
  * like this:
  * \verbatim
 #$ time, AO0, AO1, DO0, DO1
@@ -55,7 +55,7 @@ namespace sequencer {
  *
  * In the CSV file, use commas to separate columns and \c # for comments.
  *
- * \test test applications for sequencer::CSVsequenceParser can be found in \link niseqout_test.cpp and
+ * \test test applications for SDFFLib::CSVsequenceParser can be found in \link niseqout_test.cpp and
  *       \link seqgen_test.cpp.
  */
 class CSVsequenceParser: public baseImporter {
@@ -67,7 +67,7 @@ class CSVsequenceParser: public baseImporter {
     CSVsequenceParser() {};
 
   public:
-    /** \brief class constructor. \c sg is a pointer to a sequencer::sequenceGenerator object that will be used by the class */
+    /** \brief class constructor. \c sg is a pointer to a SDFFLib::sequenceGenerator object that will be used by the class */
     CSVsequenceParser(sequenceGenerator* sg, channelManager* cm);
     /** \brief class destructor */
     virtual ~CSVsequenceParser();

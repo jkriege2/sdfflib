@@ -7,7 +7,7 @@
 #include "sdffparser.h" // class's header file
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 std::string sdff_tokentostr(sdff_token t){
   switch(t) {

@@ -24,7 +24,7 @@
 #include <unistd.h>
 #include <cstring>
 
-#include "../lib_nidaqmx/NIDAQmx.h"
+#include "NIDAQmx.h"
 
 #include "tools.h"
 #include "sequencererror.h"
@@ -39,7 +39,7 @@
 #define NIDRIVER_H
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 /** \brief Executes \c inctsruction and checks for an error. if there was an error then SEQUENCER_ERROR() is called. SEQUENCE_ERROR() is not called for warnings from the driver!
  * \ingroup drivers
@@ -161,7 +161,7 @@ typedef struct {
  * .
  *
  *
- * This class implements tha basic driver interface, defined in the sequencer::driver class:
+ * This class implements tha basic driver interface, defined in the SDFFLib::driver class:
  *  - reset() will perform a hardware and software reset. So thisbasically reset the object
  *    to the state directly after a call of the constructor (or any other sensefull initial state!)
  *  - bind() will bind the class to a dataset, i.e. a NIsequenceGenerator which holds the data that is
@@ -280,7 +280,7 @@ master_timebase_rate = <rate in Hz>          # clock rate of the master timebase
  * include library whenever installing a new driver version.
  *
  *
- * \test a test application for sequencer::NIdriver can be found in \link niseqout_test.cpp.
+ * \test a test application for SDFFLib::NIdriver can be found in \link niseqout_test.cpp.
  */
 class NIdriver: public driver
 {
@@ -344,7 +344,7 @@ class NIdriver: public driver
       *        provided as parameter.
       *
       * The parameter should reference a jkiniparser object which contains data that was read from a timing.ini file as
-      * described in the documentation of thi \link sequencer::NIdriver "class".
+      * described in the documentation of thi \link SDFFLib::NIdriver "class".
       */
     virtual void set_output_triggering(jkiniparser& ini);
 
@@ -352,7 +352,7 @@ class NIdriver: public driver
       *        the ini file provided as parameter.
       *
       * The parameter should reference a jkiniparser object which contains data that was read from a timing.ini file as
-      * described in the documentation of thi \link sequencer::NIdriver "class".
+      * described in the documentation of thi \link SDFFLib::NIdriver "class".
       */
     virtual void set_input_triggering(jkiniparser& ini, int itask);
 

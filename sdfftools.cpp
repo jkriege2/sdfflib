@@ -8,7 +8,7 @@
 #include "sdffparser.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 /* =======================================================================================================================
  * = tool functions and methods                                                                                          =
@@ -535,6 +535,8 @@ sdff_result SDFFFunctionManager::evaluate(std::string name, sdff_result* paramet
     if (parameter_count>0) vmanager->leave_block();
     return r;
   }
+
+  return sdff_result();
 }
 
 void SDFFFunctionManager::add_node(std::string name, std::vector<sdff_function_parameter> parameters, SDFFnode* node, long line){

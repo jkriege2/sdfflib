@@ -25,7 +25,7 @@
 #include "sequencegenerator.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
   typedef int16_t int16;
 
@@ -115,14 +115,14 @@ typedef struct {
  * \brief generates the sequence as a memory array from simple instructions that is designed for use with the National Instruments (NI) DAQmx base C driver library
  * \ingroup seqgen
  *
- * The class sequencer::NIsequenceGenerator implements a low-level sequence generator. This is then controlled
- * by the more high-level classes, like sequencer::sdffParser or sequencer::csvSequenceParser. These classes
- * can use sequencer::NIsequenceGenerator to generate a set of memory arrays that can be directly fed into the National
+ * The class SDFFLib::NIsequenceGenerator implements a low-level sequence generator. This is then controlled
+ * by the more high-level classes, like SDFFLib::sdffParser or SDFFLib::csvSequenceParser. These classes
+ * can use SDFFLib::NIsequenceGenerator to generate a set of memory arrays that can be directly fed into the National
  * Instruments DAQmx base driver library that controls the hardware. It inherits the high-level interface defined in
- * tha abstract base class sequencer::sequenceGenerator.
+ * tha abstract base class SDFFLib::sequenceGenerator.
  *
  * \par internal data format for NI-DAQmx driver:
- * The output of sequencer::NIsequenceGenerator is a set of arrays, where there is one array for each port on
+ * The output of SDFFLib::NIsequenceGenerator is a set of arrays, where there is one array for each port on
  * each device. All analog channels of one port on one device will be tied together to one array of doubles.
  * All digital channels of one port on one device will be tied together to an uint<i>n</i>_t array. In one such
  * array the channels are ordered alphabetically. The next diagramm shows the mapping from the logical structure
@@ -131,7 +131,7 @@ typedef struct {
  * it is not explicitly included. So if you want to port the system to another output hardware it could be necessary
  * to reimplement this class.
  * \image html low_level_dataformats.png
- * This class also provides a list which can be accessed by the internal name of a port (see sequencer::channelManager)
+ * This class also provides a list which can be accessed by the internal name of a port (see SDFFLib::channelManager)
  * and that contains the base adress of the corresponding memory array and information about its data format and the
  * array or bit offset. If the a channel is a digital pin then \c offset contains the bit offset which is the number
  * of the bit that belongs to the corresponding port. If the channel is an analog output then \c offset contains the
@@ -160,7 +160,7 @@ typedef struct {
 width = 8 | 16 | 32         # only vaid for digital ports, gives the width of the port in bits
 grouping = free | pin_name  # is grouping of bits free or does the pin_name provide the bit number
 \endverbatim
- * If in such a file \c grouping=pin_name then the pin_name property of all pins (see sequencer::channelManager for details)
+ * If in such a file \c grouping=pin_name then the pin_name property of all pins (see SDFFLib::channelManager for details)
  * has to be an integer number, which gives the bit that represents the pin. I.e. if we have pins P0.0..P0.7 where port="P0."
  * then pin=0..7 and P0.0 is represented by the least-significent bit (Bit 0), P0.1 by bit 1 and so on. The given \c width
  * will be used for the port. So if width=8 then the array will be of type uint8_t. If width=16 the array will be of type
@@ -178,7 +178,7 @@ grouping = free | pin_name  # is grouping of bits free or does the pin_name prov
  *      mode there is one array column for each channel and not one bit for each channel! I will have to change this some
  *      time...
  *
- * \test a test application for the class sequencer::NIsequenceGenerator can be foun in \link seqgen_test.cpp.
+ * \test a test application for the class SDFFLib::NIsequenceGenerator can be foun in \link seqgen_test.cpp.
  */
 class NIsequenceGenerator: public sequenceGenerator
 {
@@ -468,6 +468,7 @@ class NIsequenceGenerator: public sequenceGenerator
             return ((double*)arrays[num].data)[time_to_index(timestep)*arrays[num].channels+get_offset(channel)];
           if (df==sgBinary16)
             return 10.0*(double)((int16*)arrays[num].data)[time_to_index(timestep)*arrays[num].channels+get_offset(channel)]/32768.0;
+          return 0.0;
         };
 
         /** \brief returns the digital value at the specified time from the given channel */
@@ -486,6 +487,7 @@ class NIsequenceGenerator: public sequenceGenerator
             return bit_is_set(((uint16_t*)arrays[num].data)[time_to_index(timestep)], offset);
           }
           SEQUENCER_ERROR(SEQUENCER_ERROR_NOTDIGITAL_NUM, get_errormessage(SEQUENCER_ERROR_NOTDIGITAL_NUM), "NIsequenceGenerator.get_digital(\""+channel+"\", "+floattostr(timestep)+")");
+          return false;
         };
 
         /** \brief reads the value of the channel at the end of the sequence. If the channel does not exist within
@@ -530,7 +532,7 @@ class NIsequenceGenerator: public sequenceGenerator
         std::string get_name(unsigned long num);
 
         /** \brief initialize the object for sequence generation and set \c sample_timestep and \c end_time.
-         *         The channels will be taken from the sequencer::channelManager object.
+         *         The channels will be taken from the SDFFLib::channelManager object.
          *
          * This method goes through the following steps:
          * \verbatim

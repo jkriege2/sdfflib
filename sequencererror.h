@@ -21,7 +21,7 @@
 #ifndef SEQUENCERERROR_H
 #define SEQUENCERERROR_H
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 /** \brief error: index out of range
@@ -641,14 +641,14 @@ class exception
  *         to enable a later change in error handling
  * \ingroup seq_error
  */
-#define SEQUENCER_ERROR(n, m, w) { throw sequencer::exception(n, m, w); }
+#define SEQUENCER_ERROR(n, m, w) { throw SDFFLib::exception(n, m, w); }
 
 /** \brief this macro is replaced by code that throws an exception use this instead of direct \c throw ...
  *         to enable a later change in error handling. This macro automatically gets the according error
  *         message using get_errormessage method
  * \ingroup seq_error
  */
-#define SEQUENCER_ERRORN(n, w) { throw sequencer::exception(n, sequencer::get_errormessage(n), w); }
+#define SEQUENCER_ERRORN(n, w) { throw SDFFLib::exception(n, SDFFLib::get_errormessage(n), w); }
 
 /** \brief this macro is replaced by code that throws an exception use this instead of direct \c throw ...
  *         to enable a later change in error handling. This macro automatically gets the according error
@@ -656,7 +656,7 @@ class exception
  *         will be formatted using them (uses format() method).
  * \ingroup seq_error
  */
-#define SEQUENCER_ERRORV(n, w, args...) { throw sequencer::exception(n, format(sequencer::get_errormessage(n), args), w); }
+#define SEQUENCER_ERRORV(n, w, args...) { throw SDFFLib::exception(n, format(SDFFLib::get_errormessage(n), args), w); }
 
 }
 

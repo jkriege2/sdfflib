@@ -32,7 +32,7 @@
 #include "sdfftools.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 class SDFFelementManager; // forward declaration

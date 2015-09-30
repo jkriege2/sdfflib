@@ -6,7 +6,7 @@
 
 #include "sequencererror.h" // class's header file
 
-namespace sequencer {
+namespace SDFFLib {
 
 std::string get_errormessage(int num) {
   switch(num) {

@@ -6,7 +6,7 @@
 
 #include "channelmanager.h" // class's header file
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 std::string cm_types2str(cm_types type){

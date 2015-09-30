@@ -2,7 +2,7 @@
 #include "basesequenceplotter.h" // class's header file
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 // class constructor
 baseSequencePlotter::baseSequencePlotter():

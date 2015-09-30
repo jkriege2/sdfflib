@@ -8,7 +8,7 @@
 #include "sdffparser.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 std::string sdff_serial_paritymode2str(sdff_serial_paritymodes mode){
     switch(mode) {

@@ -31,7 +31,7 @@
 
 
 
-namespace sequencer {
+namespace SDFFLib {
   namespace sdff_functions {
     /** \brief \c <tt>if(test_expression, true_expression, false_expresion)</tt> function for SDFFparser
      * \ingroup hlseqgen_sdff_f_mf

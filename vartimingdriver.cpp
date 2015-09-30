@@ -8,7 +8,7 @@
 #include "vartimingdriver.h"
 #include "jkiniparser.h"
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 void varTimingDriver::win32_error(std::string where){

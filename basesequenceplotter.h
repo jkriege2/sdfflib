@@ -24,7 +24,7 @@
 #include "nisequencegenerator.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 /** \brief list of possible marker types
  * \ingroup seqplot

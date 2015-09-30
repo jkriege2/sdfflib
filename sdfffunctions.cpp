@@ -7,7 +7,7 @@
 #include "sdfffunctiontools.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
   namespace sdff_functions {
 
     /* sequence generating functions */

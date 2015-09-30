@@ -2,7 +2,7 @@
 #include "sequencegenerator.h" 
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 void sequenceGenerator::set_linear(std::string channel, double time_start, double time_stop,double endvalue){
      set_linear(channel, time_start, time_stop, get_analog(channel, time_start), endvalue);

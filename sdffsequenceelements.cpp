@@ -8,7 +8,7 @@
 #include "sdffparser.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 

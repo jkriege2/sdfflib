@@ -8,12 +8,12 @@
 
 #include "sdffparser.h"
 
-namespace sequencer {
+namespace SDFFLib {
 
 
-#define RUN_TIME_ERROR(num, message, where) { throw sequencer::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), message.c_str()), where, get_line(), parser->get_current_time()); }
-#define RUN_TIME_ERRORN(num, where) { throw sequencer::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), get_errormessage(num).c_str()), where, get_line(), parser->get_current_time()); }
-#define RUN_TIME_ERRORV(num, where, args...) { throw sequencer::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), format(get_errormessage(num), args).c_str()), where, get_line(), parser->get_current_time()); }
+#define RUN_TIME_ERROR(num, message, where) { throw SDFFLib::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), message.c_str()), where, get_line(), parser->get_current_time()); }
+#define RUN_TIME_ERRORN(num, where) { throw SDFFLib::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), get_errormessage(num).c_str()), where, get_line(), parser->get_current_time()); }
+#define RUN_TIME_ERRORV(num, where, args...) { throw SDFFLib::exception(num, format("runtime-error at line %d and time %lf:\n  %s", get_line(), parser->get_current_time(), format(get_errormessage(num), args).c_str()), where, get_line(), parser->get_current_time()); }
 
 
 /* =======================================================================================================================

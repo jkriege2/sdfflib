@@ -7,7 +7,7 @@
 #include "baseimporter.h" // class's header file
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 baseImporter::baseImporter(sequenceGenerator* sg, channelManager* cm) {

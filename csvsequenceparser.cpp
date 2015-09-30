@@ -7,7 +7,7 @@
 #include "csvsequenceparser.h" // class's header file
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 CSVsequenceParser::CSVsequenceParser(sequenceGenerator* sg, channelManager* cm):

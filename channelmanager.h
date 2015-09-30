@@ -27,7 +27,7 @@
 
 #ifndef CHANNEL_MANAGER_H
 #define CHANNEL_MANAGER_H
-namespace sequencer {
+namespace SDFFLib {
 
 /** \brief list of possible channel types
  * \ingroup chanman
@@ -119,7 +119,7 @@ typedef struct {
  * Each digital channel of the hardware system is always part of a digital port! This port has a <port_name> to which
  * the name of the actual channel will be concatenated.
  *
- * It is the task of the low-level sequence generation objects (see sequencer::sequenceGenerator ) to generate a valid
+ * It is the task of the low-level sequence generation objects (see SDFFLib::sequenceGenerator ) to generate a valid
  * hardware adress from the parts \c device_name, \c port_name and \c pin_name.
  *
  * All this data is stored in a cm_channel struct for each channel. The resulting set of

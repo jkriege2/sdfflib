@@ -7,7 +7,7 @@
 #include "nidriver.h" // class's header file
 #include <algorithm>
 
-namespace sequencer {
+namespace SDFFLib {
 
 std::string taskstatetostring(nid_task_state ts){
   switch(ts) {

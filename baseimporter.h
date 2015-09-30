@@ -39,7 +39,7 @@
 #include "sequencegenerator.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 
@@ -94,8 +94,8 @@ typedef struct {
  * .
  *
  * You can find descendents of this base class in these classes:
- *   - sequencer::CSVsequenceparser
- *   - sequencer::SDFFparser
+ *   - SDFFLib::CSVsequenceparser
+ *   - SDFFLib::SDFFparser
  * .
  *
  * If you want to write your own implementation you will typically add some methods that are called \c import()
@@ -134,7 +134,7 @@ class baseImporter {
     /** depending in position_mode this class returns a string \c '(t=<e.time>)' or \c '(l.<e.position>)' or '(l.<e.position>, t=<e.time>)' */
     virtual std::string get_position(bi_event e);
   public:
-    /** \brief class constructor. \c sg is a pointer to a sequencer::sequenceGenerator object that will be used by the class */
+    /** \brief class constructor. \c sg is a pointer to a SDFFLib::sequenceGenerator object that will be used by the class */
     baseImporter(sequenceGenerator* sg, channelManager* cm);
     /** \brief class destructor */
     virtual ~baseImporter() {};

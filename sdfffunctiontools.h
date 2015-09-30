@@ -26,7 +26,7 @@
  * \param message the error message string (you should create it with format() from geterrormessage() ).
  * \param where a string that specifies the function that caused the error
  */
-#define RUN_TIME_ERROR(num, message, where) { throw sequencer::exception(num, format("runtime-error at line %d and time %lf:\n  %s", parser->get_current_line(), parser->get_current_time(), message.c_str()), where, parser->get_current_line(), parser->get_current_time()); }
+#define RUN_TIME_ERROR(num, message, where) { throw SDFFLib::exception(num, format("runtime-error at line %d and time %lf:\n  %s", parser->get_current_line(), parser->get_current_time(), message.c_str()), where, parser->get_current_line(), parser->get_current_time()); }
 
 /** \brief throws a runtime error inside a SDFF external function
  * \ingroup hlseqgen_sdff_f_tm
@@ -35,7 +35,7 @@
  *            this parameter.
  * \param where a string that specifies the function that caused the error
  */
-#define RUN_TIME_ERRORN(num, where) { throw sequencer::exception(num, format("runtime-error at line %d and time %lf:\n  %s", parser->get_current_line(), parser->get_current_time(), get_errormessage(num).c_str()), where, parser->get_current_line(), parser->get_current_time()); }
+#define RUN_TIME_ERRORN(num, where) { throw SDFFLib::exception(num, format("runtime-error at line %d and time %lf:\n  %s", parser->get_current_line(), parser->get_current_time(), get_errormessage(num).c_str()), where, parser->get_current_line(), parser->get_current_time()); }
 
 
 

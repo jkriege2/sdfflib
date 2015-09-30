@@ -39,7 +39,7 @@
 #include "./mersenne/MersenneTwister.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 /** \brief the possible tokens for the tokenizer in SDFFparser
  * \ingroup hlseqgen_sdff
@@ -594,7 +594,7 @@ class SDFFparser: public baseImporter {
     std::map<std::string, sdff_channel_alias_data> channel_aliases;
 
   public:
-    /** \brief class constructor. \c sg is a pointer to a sequencer::sequenceGenerator object that will be used by the class */
+    /** \brief class constructor. \c sg is a pointer to a SDFFLib::sequenceGenerator object that will be used by the class */
     SDFFparser(sequenceGenerator* sg, channelManager* cm);
     /** \brief class destructor */
     virtual ~SDFFparser();

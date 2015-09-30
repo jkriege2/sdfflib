@@ -7,7 +7,7 @@
 /** \file sdfftools.h
  * \ingroup hlseqgen_sdff_tools
  *
- * In this file you will find some tool methods and classes for sequencer::SDFFparser.
+ * In this file you will find some tool methods and classes for SDFFLib::SDFFparser.
  */
 /*@{*/
 
@@ -28,7 +28,7 @@
 #include "channelmanager.h"
 #include "sequencegenerator.h"
 
-namespace sequencer {
+namespace SDFFLib {
 
 class SDFFparser; // forward declaration
 class SDFFnode;   // forward declaration

@@ -22,14 +22,14 @@
 #include "tools.h"
 #include "sequencererror.h"
 #include "sequencegenerator.h"
-#include "../highrestimer.h"
+#include "highrestimer.h"
 
 
 #ifndef DRIVER_H
 #define DRIVER_H
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 /**
  * \brief virtual base class for hardware drivers. This class defines a common interface for hardware driver classes that can output a sequence
@@ -67,7 +67,7 @@ void bind(channelManager* c, NIsequenceGenerator* gen)
  * to load data ... by overwriting (and hiding?) the method implemented in this class.
  *
  * Any implmentation of a driver class may also add as many methods to the above interface, as needed. So have a look
- * at sequencer::NIdriver which also implements asynchronous I/O operations.
+ * at SDFFLib::NIdriver which also implements asynchronous I/O operations.
  */
 class driver
 {
@@ -151,7 +151,7 @@ class driver
 		/** \brief returns some system information about NI-DAQmx and the installed hardware */
 		virtual std::string get_systeminfo()=0;
 
-		/** \brief bind the object to a datasource (sequencer::NIsequenceGenerator) 
+		/** \brief bind the object to a datasource (SDFFLib::NIsequenceGenerator) 
      *         if \c exetime points to a double variable this will contain the execution
      *         point in time of this function after the function returns. Time is taken from
      *         the HighResTimer object supplied in the contructor or from an internal timer.

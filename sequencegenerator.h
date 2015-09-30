@@ -24,7 +24,7 @@
 #include "logfile.h"
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 /**
@@ -33,9 +33,9 @@ namespace sequencer {
  *
  * \image html sequence_generator.png
  *
- * The class sequencer::sequencegenerator implements a low-level sequence generator. This is then controlled
- * by the more high-level classes, like sequencer::sdffParser or sequencer::csvSequenceParser. These classes
- * can use a sequencer::sequenceGenerator child to generate a set of memory arrays that can be directly fed 
+ * The class SDFFLib::sequencegenerator implements a low-level sequence generator. This is then controlled
+ * by the more high-level classes, like SDFFLib::sdffParser or SDFFLib::csvSequenceParser. These classes
+ * can use a SDFFLib::sequenceGenerator child to generate a set of memory arrays that can be directly fed
  * into specific hardware driver libraries. 
  *
  * At the beginning all values are beeing set to 0. There are only a few and very low-level methods to generate the sequence:
@@ -69,7 +69,7 @@ class sequenceGenerator
         double end_time;
         /** \brief a list of all channels, used in the sequence */
         std::set<std::string> used_channels;
-        /** \brief internal: pointer to a sequencer::channelManager object which is needed by some of the methods of this class. This property will be set by the \c init() function.*/
+        /** \brief internal: pointer to a SDFFLib::channelManager object which is needed by some of the methods of this class. This property will be set by the \c init() function.*/
         channelManager* cmanager;
         
 	public:
@@ -78,9 +78,9 @@ class sequenceGenerator
         /** \brief virtual class destructor */
         virtual ~sequenceGenerator() {};
         
-         /** \brief set a pointer to a sequencer::channelManager object that can be used by methods of this class */
+         /** \brief set a pointer to a SDFFLib::channelManager object that can be used by methods of this class */
         SetMacro(channelManager*, cmanager);
-         /** \brief get a pointer to the sequencer::channelManager object that is used by methods of this class */
+         /** \brief get a pointer to the SDFFLib::channelManager object that is used by methods of this class */
         GetMacro(channelManager*, cmanager);
 
          /** \brief get the value of the sample_timestep in µs (Microseconds)  */
@@ -100,7 +100,7 @@ class sequenceGenerator
         SetMacro(LogFile*, log);
 
         /** \brief initialize the object for sequence generation and set \c sample_timestep and \c end_time. 
-         *         The channels will be taken from the sequencer::channelManager object. The parameter 
+         *         The channels will be taken from the SDFFLib::channelManager object. The parameter
          */
         virtual void init(channelManager* cm, double sample_timestep, double end_time=-1);
 

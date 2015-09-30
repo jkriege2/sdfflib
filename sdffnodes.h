@@ -31,7 +31,7 @@
 
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 
 
@@ -707,8 +707,8 @@ c7->set_boolean(true); cout<<"~true = "<<sdff_resulttostr(n6->evaluate())<<endl;
 c7->set_integer(5); cout<<"~5 = "<<sdff_resulttostr(n6->evaluate())<<endl;
 c7->set_string("how"); cout<<"~'how' = "<<sdff_resulttostr(n6->evaluate())<<endl;
 cout<<"ERROR TESTS:"<<endl;
-try{c7->set_string("how"); n6->set_negationtype(sdffNTMinus); cout<<"-'how': "; sdff_resulttostr(n6->evaluate());} catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
-try{c7->set_double(5.4); n6->set_negationtype(sdffNTBitwise); cout<<"~5.4: "; sdff_resulttostr(n6->evaluate());} catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
+try{c7->set_string("how"); n6->set_negationtype(sdffNTMinus); cout<<"-'how': "; sdff_resulttostr(n6->evaluate());} catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
+try{c7->set_double(5.4); n6->set_negationtype(sdffNTBitwise); cout<<"~5.4: "; sdff_resulttostr(n6->evaluate());} catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
 \endcode
  * The result should look like:
  * \verbatim
@@ -833,8 +833,8 @@ n5->set_type(sdffAOModulo); cout<<"%:  "<<sdff_resulttostr(n5->evaluate())<<endl
 n5->set_left(c5); n5->set_right(c6);
 n5->set_type(sdffAOAdd); cout<<"concatenate two strings: "<<sdff_resulttostr(n5->evaluate())<<endl;
 cout<<"ERROR TESTS:"<<endl;
-try{n5->set_type(sdffAOSubtract); cout<<"subtract two strings: "; sdff_resulttostr(n5->evaluate());} catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
-try{n5->set_right(c1); n5->set_type(sdffAOSubtract); cout<<"subtract string and number: "; sdff_resulttostr(n5->evaluate());} catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
+try{n5->set_type(sdffAOSubtract); cout<<"subtract two strings: "; sdff_resulttostr(n5->evaluate());} catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
+try{n5->set_right(c1); n5->set_type(sdffAOSubtract); cout<<"subtract string and number: "; sdff_resulttostr(n5->evaluate());} catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
 \endcode
  * The result should look like:
  * \verbatim
@@ -1243,9 +1243,9 @@ SDFFparser parser(&generator, &cmanager);
 cout<<endl<<"test variable assign node:"<<endl;
 SDFFconstantNode* c12=new SDFFconstantNode(&parser); c11->set_string("variable value");
 SDFFvariableassignNode* n9=new SDFFvariableassignNode(&parser, "testvar", c12);
-try{c12->set_string("variable value"); n9->set_variable_name("testvar"); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
-try{c12->set_double(1.2345); n9->set_variable_name("testvar"); n9->set_constant(true); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
-try{c12->set_double(2345); n9->set_variable_name("testvar"); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
+try{c12->set_string("variable value"); n9->set_variable_name("testvar"); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
+try{c12->set_double(1.2345); n9->set_variable_name("testvar"); n9->set_constant(true); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
+try{c12->set_double(2345); n9->set_variable_name("testvar"); n9->evaluate(); cout<<"testvar= "<<sdff_resulttostr(parser.get_vmanager()->get("testvar"))<<endl; } catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
 \endcode
  * The result should look like:
  * \verbatim
@@ -1357,7 +1357,7 @@ c15->set_integer(25);
 std::cout<<"sqr(25) = "<<sdff_resulttostr(n12->evaluate())<<endl;
 cout<<"ERROR TESTS:"<<endl;
 c15->set_string("bla");
-try{std::cout<<"sqr('bla') = "<<sdff_resulttostr(n12->evaluate())<<endl;} catch (sequencer::exception E) {cout<<E.get_message()<<endl; }
+try{std::cout<<"sqr('bla') = "<<sdff_resulttostr(n12->evaluate())<<endl;} catch (SDFFLib::exception E) {cout<<E.get_message()<<endl; }
 \endcode
  * The result should look like:
  * \verbatim

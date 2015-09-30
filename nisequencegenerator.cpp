@@ -3,7 +3,7 @@
 #include "nisequencegenerator.h" // class's header file
 
 
-namespace sequencer {
+namespace SDFFLib {
 
 // class constructor
 NIsequenceGenerator::NIsequenceGenerator():

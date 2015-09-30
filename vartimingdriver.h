@@ -31,7 +31,7 @@
 #define VARTIMINGDRIVER_H
 
 
-namespace sequencer {
+namespace SDFFLib {
 #ifndef __WINDOWS__
 #if defined(WIN32) || defined(WIN64) || defined(_MSC_VER) || defined(_WIN32)
 #define __WINDOWS__

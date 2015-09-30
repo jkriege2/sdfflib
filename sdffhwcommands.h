@@ -30,7 +30,7 @@
 #include "channelmanager.h"
 #include "sequencegenerator.h"
 
-namespace sequencer {
+namespace SDFFLib {
 
 class SDFFparser; // forward declaration
 
@@ -667,7 +667,7 @@ typedef struct {
  * \ingroup hlseqgen_sdff_commands
  *
  * This class collects a list of commands that can be sent to hardware other than the synchronized output
- * hardware which is controller with sequencer::sequenceGenerator descendents and sequencer::SDFFelementManager.
+ * hardware which is controller with SDFFLib::sequenceGenerator descendents and SDFFLib::SDFFelementManager.
  * This is used to control GPIB serial interfaces.
  *
  *
@@ -675,7 +675,7 @@ typedef struct {
  * For each hardware type a list is created that contains all the commands that were issued during the execution
  * of the SDFF sequence. A specialized hardware driver class may then read the list and really send the commands.
  * The type of the hardware is identified by a string like \c "gpib" for GPIB instructions. Each command is represented
- * by a class that contains the data which specifies it. These classes are all descendents of sequencer::SDFFcommand.
+ * by a class that contains the data which specifies it. These classes are all descendents of SDFFLib::SDFFcommand.
  * They contain at least these data:
  *   - time of execution in microseconds (or -1 if it is to be executed before the sequence runs)
  *   - sdff file where the command appears and line therein.
