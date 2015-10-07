@@ -447,7 +447,7 @@ class SDFFconstantNode: public SDFFnode {
     };
 
     /** \brief print the node (and all sub-nodes) into a string */
-    virtual std::string print(int indent=0) {
+    virtual std::string print(int /*indent*/=0) {
       return asdff_resulttostr(value);
     };
 
@@ -1664,13 +1664,13 @@ class SDFFifNode: public SDFFnode {
 
     /** \brief return a pointer to the n-th true node */
     inline virtual SDFFnode* get_true_child(size_t n) {
-      if ((n>=0)&&(n<truechildren.size())) return truechildren[n];
+      if (((long long)n>=0)&&(n<truechildren.size())) return truechildren[n];
       return NULL;
     }
 
     /** \brief return a pointer to the n-th false node */
     inline virtual SDFFnode* get_false_child(size_t n) {
-      if ((n>=0)&&(n<falsechildren.size())) return falsechildren[n];
+      if (((long long)n>=0)&&(n<falsechildren.size())) return falsechildren[n];
       return NULL;
     }
 
@@ -1922,7 +1922,7 @@ class SDFFchannelNode: public SDFFnaryNode {
     SDFFnode* channel;
   public:
     /** \brief class constructor, also sets the parent and parser property of the child nodes */
-    SDFFchannelNode(SDFFnode* parent, SDFFnode* chanel): SDFFnaryNode(parent) {
+    SDFFchannelNode(SDFFnode* parent, SDFFnode* channel): SDFFnaryNode(parent) {
       this->channel=channel;
     };
 

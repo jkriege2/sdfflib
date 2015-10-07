@@ -134,7 +134,7 @@ std::string asdff_tokentostr(sdff_token t);
  *    token and possibly also the data that is represented by the token in the private data members current_token,
  *    current_string (represents the value of string constants and names that appear in the program), current_double,
  *    current_integer and current_boolean. This tokenizer also swallows comments that begin with \c # and end with the
- *    end of line or C-style comments <tt>/*..* /</tt> .
+ *    end of line or C-style comments <tt>/ *..* /</tt> .
  *  - The main parser routine is sdff_file(). It represents a production like this (<b>bold</b> are terminal characters):\n
  *<pre> sdff_file        ->  { <b>parameters {</b> expression_seq <b>}</b>
  *                      | <b>sequence {</b> event_seq <b>}</b>
