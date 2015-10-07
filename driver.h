@@ -156,7 +156,7 @@ class driver
      *         point in time of this function after the function returns. Time is taken from
      *         the HighResTimer object supplied in the contructor or from an internal timer.
      */
-		void bind(sequenceGenerator* gen, double* exetime=NULL) { std::cout<<"not implemented !!!"<<std::endl; exit(0); };
+        void bind(sequenceGenerator* /*gen*/, double* /*exetime*/=NULL) { std::cout<<"not implemented !!!"<<std::endl; exit(0); }
 
 		/** \brief hardware system reset 
      *         if \c exetime points to a double variable this will contain the execution
