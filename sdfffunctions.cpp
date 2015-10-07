@@ -12,7 +12,7 @@ namespace SDFFLib {
 
     /* sequence generating functions */
 
-    sdff_result SET(SDFFparser* parser, std::string /*fname*/, sdff_result* parameter, unsigned char paramcount) {
+    sdff_result SET(SDFFparser* parser, std::string fname, sdff_result* parameter, unsigned char paramcount) {
       char name[]="set('channel'|time, value[, delay=0])";
       char short_name[]="set";
       char args[]="string (channel) or number (time)";
@@ -90,7 +90,7 @@ namespace SDFFLib {
       return r;
     }
 
-    bool SET_check(SDFFparser* parser, std::string /*fname*/, sdff_paramtype* /*parameter*/, unsigned char paramcount, bool /*returnused*/) {
+    bool SET_check(SDFFparser* parser, std::string fname, sdff_paramtype* parameter, unsigned char paramcount, bool returnused) {
       char name[]="set('channel'|time, value[, delay=0])";
       /*char args[]="integer";
       if ((parser->get_inside_preevent() || parser->get_inside_lastevent()) && paramcount==3) parser->add_error_p(SEQUENCER_SDFFERROR_DELAYEDOUTPUTINPRE_NUM, parser->get_current_filename(), parser->get_current_line());
